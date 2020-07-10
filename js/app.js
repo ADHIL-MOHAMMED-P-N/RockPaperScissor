@@ -25,6 +25,9 @@ window.addEventListener('load',function(){
 })
 
 playBtn.addEventListener('click',function(){
+    if(playBtn.textContent == 'Reset'){
+        fadeOutFunction();
+    }
     resetFunction();
     fadeInFunction();
     btnChange();
