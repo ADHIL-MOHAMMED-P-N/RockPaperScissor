@@ -6,6 +6,11 @@ const userRock = document.querySelector('.user-rock');
 const userPaper = document.querySelector('.user-paper');
 const userScissor = document.querySelector('.user-scissor');
 const Items = ['fa-hand-rock','fa-hand-paper','fa-hand-scissors'];
+const resetSpan = document.querySelector('.reset-span');
+const playSpan = document.querySelector('.play-span');
+const scoreCard  = document.querySelector('.score-card');
+const result = document.querySelector('.result');
+const closeBtn = document.querySelector('.close-btn');
 var pointOfUser = 0;//actual point
 var pointOfOpponent = 0;//actual point
 var currentItem = "";
@@ -19,11 +24,23 @@ window.addEventListener('load',function(){
 
 playBtn.addEventListener('click',function(){
     resetFunction();
+    fadeInFunction();
+    btnChange();
+});
+
+function fadeInFunction(){
     $(".user-rock").fadeIn(1000);
     $(".user-paper").fadeIn(1000);
     $(".user-scissor").fadeIn(1000);
     $(".opponent-element").fadeIn(1000);
-});
+}
+
+function fadeOutFunction(){
+    $(".user-rock").fadeOut(100);
+    $(".user-paper").fadeOut(100);
+    $(".user-scissor").fadeOut(100);
+    $(".opponent-element").fadeOut(100);
+}
 //reset
 function resetFunction(){
     userPoint.textContent = pointOfUser;
@@ -32,6 +49,7 @@ function resetFunction(){
     currentItem ="";
     pointOfUser = 0;
     pointOfOpponent = 0;
+    updatePoint();
 };
 //Animation
 function effects(){
@@ -71,6 +89,7 @@ userRock.addEventListener('click',function(){
         pointOfUser++;
     }
     updatePoint();
+    turnOver();
 });
 userPaper.addEventListener('click',function(){
     turn++;
@@ -84,6 +103,7 @@ userPaper.addEventListener('click',function(){
         pointOfOpponent++;
      }
     updatePoint();
+    turnOver();
 });
 
 userScissor.addEventListener('click',function(){
@@ -96,11 +116,37 @@ userScissor.addEventListener('click',function(){
      }else{
         //no change
         turn--
-     }
-    updatePoint();
+     }  
+     updatePoint();
+     turnOver();
 });
 
-if(turn==9){
-    resetFunction();
+function turnOver(){
+    if(turn == 10 ){
+        resetFunction();
+        fadeOutFunction();
+        btnChange();
+        scorecardDisplay();
+    }
 }
-
+function btnChange(){
+        playBtn.classList.toggle('btn-danger');
+        resetSpan.classList.toggle('reset-span-display');
+        playSpan.classList.toggle('play-span-none');
+}
+function scorecardDisplay(){
+    scoreCard.classList.add('score-card-display');
+    if(pointOfUser > pointOfOpponent){
+        result.textContent = 'You Won';
+        result.style.color = '#28a745';
+    }else if(pointOfUser < pointOfOpponent){
+        result.textContent = 'You Lost';
+        result.style.color = '#dc3545';
+    }else{
+        result.textContent = 'Tie';
+        result.style.color = '#003bff';
+    }
+}
+closeBtn.addEventListener('click',function(){
+    scoreCard.classList.remove('score-card-display');
+})

@@ -14,15 +14,41 @@ body{
  padding-left: 6px;
  padding-right: 6px;
 }
-.btn-success{
+.btn-success, .btn-danger{
     width: 100px;
     margin: auto;
 }
+
+.reset-span{
+    display: none;
+}
+/*toggling classes*/
+
+.reset-span-display{
+    display: inline;
+}
+.play-span-none{
+    display: none;
+}
+
 i{
     border: 1px solid white;
     border-radius: 50%;
     padding: 8px;
 }
 .card{
-    min-height: 450px;
+    min-height: 470px;
+}
+
+.score-card{
+    padding-top: 100px;
+    width: 100%;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    height: 480px;
+    display: none;
+}
+.score-card-display{
+    display: block;
 }
