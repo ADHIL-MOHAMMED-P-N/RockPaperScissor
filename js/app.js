@@ -11,6 +11,8 @@ const playSpan = document.querySelector('.play-span');
 const scoreCard  = document.querySelector('.score-card');
 const result = document.querySelector('.result');
 const closeBtn = document.querySelector('.close-btn');
+const diff = document.querySelector('.diff');
+
 var pointOfUser = 0;//actual point
 var pointOfOpponent = 0;//actual point
 var currentItem = "";
@@ -123,10 +125,11 @@ userScissor.addEventListener('click',function(){
 
 function turnOver(){
     if(turn == 10 ){
+        scorecardDisplay();
         resetFunction();
         fadeOutFunction();
         btnChange();
-        scorecardDisplay();
+       
     }
 }
 function btnChange(){
@@ -136,14 +139,21 @@ function btnChange(){
 }
 function scorecardDisplay(){
     scoreCard.classList.add('score-card-display');
+    console.log(pointOfOpponent);
+    console.log(pointOfUser);
     if(pointOfUser > pointOfOpponent){
-        result.textContent = 'You Won';
+        result.textContent = 'You Won by';
+        difference = pointOfUser - pointOfOpponent;
+        diff.textContent = difference;
         result.style.color = '#28a745';
     }else if(pointOfUser < pointOfOpponent){
-        result.textContent = 'You Lost';
+        result.textContent = 'You Lost by';
+        difference = pointOfOpponent - pointOfUser;
+        diff.textContent = difference;
         result.style.color = '#dc3545';
     }else{
         result.textContent = 'Tie';
+        diff.textContent = "";
         result.style.color = '#003bff';
     }
 }
