@@ -20,11 +20,14 @@ var turn =0;
 
 
 window.addEventListener('load',function(){
-    resetFunction();
     effects();
+    opponentElement.classList.add('fa-angry');
+    fadeInFunction();
+    resetFunction();
+    //effects();
 })
 
-playBtn.addEventListener('click',function(){
+/*playBtn.addEventListener('click',function(){
     if(resetSpan.classList.contains('reset-span-display')){
         //console.log('btn now in reset mode');
         fadeOutFunction();
@@ -35,7 +38,7 @@ playBtn.addEventListener('click',function(){
     fadeInFunction();
    }
     btnChange();
-});
+});*/
 
 function fadeInFunction(){
     $(".user-rock").fadeIn(1000);
@@ -85,6 +88,8 @@ function opponentTurn(){
     randomNumber = Math.floor(Math.random() * Items.length);
     currentItem = Items[randomNumber];
     opponentElement.classList.add(currentItem);
+    
+    
 }
 //Rock
 userRock.addEventListener('click',function(){
@@ -145,15 +150,15 @@ function turnOver(){
         scorecardDisplay();
         resetFunction();
         fadeOutFunction();
-        btnChange();
+      //  btnChange();
        
     }
 }
-function btnChange(){
+/*function btnChange(){
         playBtn.classList.toggle('btn-danger');
         resetSpan.classList.toggle('reset-span-display');
         playSpan.classList.toggle('play-span-none');
-}
+}*/
 function scorecardDisplay(){
     scoreCard.classList.add('score-card-display');
     console.log(pointOfOpponent);
