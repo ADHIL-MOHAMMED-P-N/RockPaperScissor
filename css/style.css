@@ -1,0 +1,25 @@
+body{
+    font-family:serif;
+    padding-top: 20px;
+}
+.top-icon{
+    padding-bottom: 50px;
+}
+.bottom-set{
+    padding-top: 50px;
+    padding-bottom: 8px;
+}
+.bottom-icon{
+
+ padding-left: 6px;
+ padding-right: 6px;
+}
+.btn-success{
+    width: 100px;
+    margin: auto;
+}
+i{
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 8px;
+}
