@@ -9,23 +9,38 @@ const Items = ['fa-hand-rock','fa-hand-paper','fa-hand-scissors'];
 var pointOfUser = 0;//actual point
 var pointOfOpponent = 0;//actual point
 var currentItem = "";
-var previousItem = "";
 var turn =0;
 
 
 window.addEventListener('load',function(){
     resetFunction();
+    effects();
 })
 
 playBtn.addEventListener('click',function(){
     resetFunction();
-    
+    $(".user-rock").fadeIn(1000);
+    $(".user-paper").fadeIn(1000);
+    $(".user-scissor").fadeIn(1000);
+    $(".opponent-element").fadeIn(1000);
 });
 //reset
 function resetFunction(){
     userPoint.textContent = pointOfUser;
     opponentPoint.textContent = pointOfOpponent;
+    turn = 0;
+    currentItem ="";
+    pointOfUser = 0;
+    pointOfOpponent = 0;
 };
+//Animation
+function effects(){
+    userRock.style.display = 'none';
+    userPaper.style.display = 'none';
+    userScissor.style.display = 'none';
+    opponentElement.style.display = 'none';
+}
+
 //Updating point
 function updatePoint(){
 
@@ -48,7 +63,8 @@ userRock.addEventListener('click',function(){
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
-       //No change
+        //no change
+       turn--;
     }else if(opponentElement.classList.contains('fa-hand-paper')){
         pointOfOpponent++;
     }else{
@@ -63,6 +79,7 @@ userPaper.addEventListener('click',function(){
        pointOfUser++;
      }else if(opponentElement.classList.contains('fa-hand-paper')){
          //no Change
+         turn--;
      }else{
         pointOfOpponent++;
      }
@@ -78,8 +95,12 @@ userScissor.addEventListener('click',function(){
          pointOfUser++;
      }else{
         //no change
+        turn--
      }
     updatePoint();
 });
 
+if(turn==9){
+    resetFunction();
+}
 
