@@ -52,12 +52,13 @@ function fadeOutFunction(){
 }
 //reset
 function resetFunction(){
-    userPoint.textContent = pointOfUser;
-    opponentPoint.textContent = pointOfOpponent;
     turn = 0;
     currentItem ="";
     pointOfUser = 0;
     pointOfOpponent = 0;
+    userRock.style.fontSize = '45px';
+    userPaper.style.fontSize = '45px';
+    userScissor.style.fontSize = '45px';
     updatePoint();
 };
 //Animation
@@ -87,6 +88,9 @@ function opponentTurn(){
 }
 //Rock
 userRock.addEventListener('click',function(){
+    userRock.style.fontSize = '70px';
+    userPaper.style.fontSize = '45px';
+    userScissor.style.fontSize = '45px';
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
@@ -101,6 +105,9 @@ userRock.addEventListener('click',function(){
     turnOver();
 });
 userPaper.addEventListener('click',function(){
+    userRock.style.fontSize = '45px';
+    userPaper.style.fontSize = '70px';
+    userScissor.style.fontSize = '45px';
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
@@ -116,6 +123,9 @@ userPaper.addEventListener('click',function(){
 });
 
 userScissor.addEventListener('click',function(){
+    userRock.style.fontSize = '45px';
+    userPaper.style.fontSize = '45px';
+    userScissor.style.fontSize = '70px';
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
