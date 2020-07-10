@@ -26,11 +26,14 @@ window.addEventListener('load',function(){
 
 playBtn.addEventListener('click',function(){
     if(resetSpan.classList.contains('reset-span-display')){
-        console.log('btn now in reset mode');
+        //console.log('btn now in reset mode');
         fadeOutFunction();
     }
     resetFunction();
+   if(playSpan.classList.contains('play-span-none')){
+   }else{
     fadeInFunction();
+   }
     btnChange();
 });
 
