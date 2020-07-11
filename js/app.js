@@ -15,6 +15,11 @@ const diff = document.querySelector('.diff');
 const cheersSound = document.querySelector('.cheers-sound');
 const dissSound = document.querySelector('.dis-sound');
 const bgSound = document.querySelector('.bg-sound');
+const volume = document.querySelector('.fa-volume-up');
+const mute = document.querySelector('.fa-volume-mute');
+
+//------------------------------------------------
+var onBtn = false; //sound btn is initially off
 var pointOfUser = 0;//actual point
 var pointOfOpponent = 0;//actual point
 var currentItem = "";
@@ -26,9 +31,7 @@ window.addEventListener('load',function(){
     opponentElement.classList.add('fa-angry');
     fadeInFunction();
     resetFunction();
-    setInterval(function(){
-        bgSound.play();
-    },100);
+ 
     //effects();
 })
 
@@ -143,7 +146,7 @@ userPaper.addEventListener('click',function(){
 userScissor.addEventListener('click',function(){
     userRock.style.fontSize = '45px';
     userPaper.style.fontSize = '45px';
-    userScissor.style.fontSize = '60px';
+    userScissor.style.fontSize = '6ss0px';
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
@@ -200,3 +203,17 @@ function scorecardDisplay(){
 closeBtn.addEventListener('click',function(){
     scoreCard.classList.remove('score-card-display');
 })
+
+volume.addEventListener('click',function(){
+    onBtn = true;//sound is on
+        setInterval(function(){
+            if(onBtn){
+                bgSound.play();
+            }
+        },100);   
+});
+mute.addEventListener('click',function(){
+    onBtn = false;
+    bgSound.pause();
+});
+

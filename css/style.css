@@ -46,10 +46,10 @@ i{
 .score-card{
     padding-top: 100px;
     width: 100%;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     position: absolute;
-    height: 480px;
+    height: 488px;
     display: none;
 }
 .score-card-display{
