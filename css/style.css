@@ -3,10 +3,10 @@ body{
     padding-top: 20px;
 }
 .top-icon{
-    padding-bottom: 50px;
+    padding-bottom: 45px;
 }
 .bottom-set{
-    padding-top: 90px;
+    padding-top: 45px;
     padding-bottom: 8px;
 }
 .bottom-icon{
@@ -40,7 +40,7 @@ i{
     padding: 8px;
 }
 .card{
-    min-height: 470px;
+    min-height: 488px;
 }
 
 .score-card{
@@ -55,3 +55,8 @@ i{
 .score-card-display{
     display: block;
 }
+.fa-volume-up:hover, .fa-volume-mute:hover{
+ color: black;
+ background-color: white;
+}
+ 

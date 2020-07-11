@@ -98,7 +98,7 @@ function opponentTurn(){
 }
 //Rock
 userRock.addEventListener('click',function(){
-    userRock.style.fontSize = '70px';
+    userRock.style.fontSize = '60px';
     userPaper.style.fontSize = '45px';
     userScissor.style.fontSize = '45px';
     turn++;
@@ -120,7 +120,7 @@ userRock.addEventListener('click',function(){
 });
 userPaper.addEventListener('click',function(){
     userRock.style.fontSize = '45px';
-    userPaper.style.fontSize = '70px';
+    userPaper.style.fontSize = '60px';
     userScissor.style.fontSize = '45px';
     turn++;
     opponentTurn();
@@ -143,7 +143,7 @@ userPaper.addEventListener('click',function(){
 userScissor.addEventListener('click',function(){
     userRock.style.fontSize = '45px';
     userPaper.style.fontSize = '45px';
-    userScissor.style.fontSize = '70px';
+    userScissor.style.fontSize = '60px';
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
