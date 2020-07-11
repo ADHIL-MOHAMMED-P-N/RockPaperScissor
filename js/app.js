@@ -14,6 +14,7 @@ const closeBtn = document.querySelector('.close-btn');
 const diff = document.querySelector('.diff');
 const cheersSound = document.querySelector('.cheers-sound');
 const dissSound = document.querySelector('.dis-sound');
+const bgSound = document.querySelector('.bg-sound');
 var pointOfUser = 0;//actual point
 var pointOfOpponent = 0;//actual point
 var currentItem = "";
@@ -25,6 +26,9 @@ window.addEventListener('load',function(){
     opponentElement.classList.add('fa-angry');
     fadeInFunction();
     resetFunction();
+    setInterval(function(){
+        bgSound.play();
+    },100);
     //effects();
 })
 
@@ -104,9 +108,11 @@ userRock.addEventListener('click',function(){
        turn--;
     }else if(opponentElement.classList.contains('fa-hand-paper')){
         pointOfOpponent++;
+        cheersSound.pause();
         dissSound.play();
     }else{
         pointOfUser++;
+        dissSound.pause();
          cheersSound.play();
     }
     updatePoint();
@@ -120,12 +126,14 @@ userPaper.addEventListener('click',function(){
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
        pointOfUser++;
+       dissSound.pause();
        cheersSound.play();
      }else if(opponentElement.classList.contains('fa-hand-paper')){
          //no Change
          turn--;
      }else{
         pointOfOpponent++;
+        cheersSound.pause();
         dissSound.play();
      }
     updatePoint();
@@ -140,10 +148,12 @@ userScissor.addEventListener('click',function(){
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
         pointOfOpponent++;
+        cheersSound.pause();
         dissSound.play();
         
      }else if(opponentElement.classList.contains('fa-hand-paper')){
          pointOfUser++;
+         dissSound.pause();
          cheersSound.play();
      }else{
         //no change
@@ -169,8 +179,8 @@ function turnOver(){
 }*/
 function scorecardDisplay(){
     scoreCard.classList.add('score-card-display');
-    console.log(pointOfOpponent);
-    console.log(pointOfUser);
+   // console.log(pointOfOpponent);
+   // console.log(pointOfUser);
     if(pointOfUser > pointOfOpponent){
         result.textContent = 'You Won by';
         difference = pointOfUser - pointOfOpponent;
