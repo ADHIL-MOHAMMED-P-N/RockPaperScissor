@@ -12,7 +12,8 @@ const scoreCard  = document.querySelector('.score-card');
 const result = document.querySelector('.result');
 const closeBtn = document.querySelector('.close-btn');
 const diff = document.querySelector('.diff');
-
+const cheersSound = document.querySelector('.cheers-sound');
+const dissSound = document.querySelector('.dis-sound');
 var pointOfUser = 0;//actual point
 var pointOfOpponent = 0;//actual point
 var currentItem = "";
@@ -103,8 +104,10 @@ userRock.addEventListener('click',function(){
        turn--;
     }else if(opponentElement.classList.contains('fa-hand-paper')){
         pointOfOpponent++;
+        dissSound.play();
     }else{
         pointOfUser++;
+         cheersSound.play();
     }
     updatePoint();
     turnOver();
@@ -117,11 +120,13 @@ userPaper.addEventListener('click',function(){
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
        pointOfUser++;
+       cheersSound.play();
      }else if(opponentElement.classList.contains('fa-hand-paper')){
          //no Change
          turn--;
      }else{
         pointOfOpponent++;
+        dissSound.play();
      }
     updatePoint();
     turnOver();
@@ -135,8 +140,11 @@ userScissor.addEventListener('click',function(){
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
         pointOfOpponent++;
+        dissSound.play();
+        
      }else if(opponentElement.classList.contains('fa-hand-paper')){
          pointOfUser++;
+         cheersSound.play();
      }else{
         //no change
         turn--
