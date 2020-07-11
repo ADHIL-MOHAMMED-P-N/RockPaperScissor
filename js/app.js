@@ -146,7 +146,7 @@ userPaper.addEventListener('click',function(){
 userScissor.addEventListener('click',function(){
     userRock.style.fontSize = '45px';
     userPaper.style.fontSize = '45px';
-    userScissor.style.fontSize = '6ss0px';
+    userScissor.style.fontSize = '60px';
     turn++;
     opponentTurn();
     if(opponentElement.classList.contains('fa-hand-rock')){
